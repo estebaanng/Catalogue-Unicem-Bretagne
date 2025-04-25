@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue Engins - Unicem</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .back-button-container {
+            text-align: left;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0077cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #005fa3;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            background: url('images/LogoUnicemCampus.jpg') repeat;
+            background-size: 200px;
+            filter: blur(5px);
+            animation: background-animate 30s linear infinite;
+        }
+
+        @keyframes background-animate {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .hero {
+            background-color: #ffffff;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #e0e0e0;
+            position: relative;
+        }
+
+        .hero h1 {
+            color: #333;
+            margin: 0;
+            font-size: 2em;
+            line-height: 1.2;
+        }
+
+        .hero .logo {
+            position: absolute;
+            top: 10px;
+            width: 80px;
+            height: auto;
+        }
+
+        .hero .logo.left {
+            left: 10px;
+        }
+
+        .hero .logo.right {
+            right: 10px;
+        }
+
+        .photo-gallery {
+            padding: 80px 40px;
+            background-color: #ffffff;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .photo-gallery h2 {
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 1.8em;
+        }
+
+        .gallery-item-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            font-size: 1em;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .gallery-item:hover p {
+            opacity: 1;
+        }
+
+        footer {
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+            padding: 20px 10px;
+            position: relative;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%);
+            z-index: -1;
+        }
+
+        .footer-background .logo {
+            width: 100px;
+            height: auto;
+            opacity: 0.5;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">← Retour à l'accueil</a>
+    </div>
+
+    <section class="hero">
+        <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo left">
+        <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo right">
+        <h1>Bienvenue sur le catalogue des des engins</h1>
+    </section>
+
+    <section class="photo-gallery">
+        <h2>Galerie de Photos</h2>
+
+        <div class="gallery-item-container">
+            <div class="gallery-item">
+                <img src="images/IMG_0051.jpg" alt="Photo 1">
+                <p>Photo 1 : Description de la première photo qui est assez longue pour démontrer comment le texte se comporte avec des images plus grandes.</p>
+            </div>
+
+            <div class="gallery-item">
+                <img src="images/IMG_0046.jpg" alt="Photo 2">
+                <p>Photo 2 : Description de la deuxième photo qui est assez longue pour démontrer comment le texte se comporte avec des images plus grandes.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-background">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+        </div>
+        <p>© 2024 Mon Site Web. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
