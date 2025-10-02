@@ -1,200 +1,188 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Unicem Campus - Accueil</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unicem Campus - Accueil</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body, html {
-            height: 100%;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
+    body, html {
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      scroll-behavior: smooth;
+    }
 
-        /* MENU FIXE */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.75);
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            z-index: 1000;
-        }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+    }
 
-        header img {
-            height: 40px;
-        }
+    header img {
+      height: 40px;
+    }
 
-        header nav a {
-            color: white;
-            margin-left: 20px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+    header nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+      transition: color 0.3s;
+    }
 
-        header nav a:hover {
-            color: #00aaff;
-        }
+    header nav a:hover {
+      color: #00aaff;
+    }
 
-        /* HERO */
-        .hero {
-            position: relative;
-            height: 100vh;
-            background: url('images/LogoUnicemCampus.jpg') center center / cover no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
+    .hero {
+      height: 100vh;
+      background: url('images/IMG_0046.jpg') center center / cover no-repeat;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            padding: 20px;
-        }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
 
-        .hero-content h1 {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
+    .hero-content h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+    }
 
-        .hero-content p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            color: #ddd;
-        }
+    .hero-content p {
+      font-size: 1.4em;
+      color: #ddd;
+      margin-bottom: 40px;
+    }
 
-        .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-        .btn {
-            padding: 15px 30px;
-            background-color: #0077cc;
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            border-radius: 6px;
-            transition: background-color 0.3s;
-        }
+    .btn {
+      padding: 15px 30px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      font-size: 1.1em;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
 
-        .btn:hover {
-            background-color: #005fa3;
-        }
+    .btn:hover {
+      background-color: #005fa3;
+    }
 
-        /* À PROPOS */
-        .about {
-            padding: 80px 20px;
-            background-color: #ffffff;
-            text-align: center;
-        }
+    .about {
+      padding: 80px 30px;
+      background-color: #ffffff;
+      text-align: center;
+    }
 
-        .about h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #222;
-        }
+    .about h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #222;
+    }
 
-        .about p {
-            max-width: 700px;
-            margin: auto;
-            font-size: 1.1em;
-            color: #555;
-            line-height: 1.6;
-        }
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.2em;
+      color: #555;
+      line-height: 1.8;
+    }
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
-            background-color: #f5f5f5;
-            color: #555;
-        }
+    footer {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9em;
+      color: #666;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.05);
+    }
 
-        /* RESPONSIVE */
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2em;
+      }
 
-            header nav {
-                margin-top: 10px;
-            }
+      .hero-content p {
+        font-size: 1.1em;
+      }
 
-            .hero-content h1 {
-                font-size: 2em;
-            }
-
-            .btn {
-                width: 90%;
-            }
-        }
-    </style>
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" />
+    <nav>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#about">À propos</a>
+    </nav>
+  </header>
 
-    <!-- MENU -->
-    <header>
-        <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" />
-        <nav>
-            <a href="#catalogue">Catalogue</a>
-            <a href="#about">À propos</a>
-        </nav>
-    </header>
+  <section class="hero" id="catalogue">
+    <div class="hero-content">
+      <h1>Bienvenue chez Unicem Campus</h1>
+      <p>Explorez notre flotte d'engins et notre catalogue de pièces détachées</p>
+      <div class="btn-group">
+        <a href="catalogue-engins.html" class="btn">Catalogue Engins</a>
+        <a href="pieces-detachees.html" class="btn">Pièces Détachées</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- HERO -->
-    <section class="hero" id="catalogue">
-        <div class="hero-content">
-            <h1>Bienvenue chez Unicem Campus</h1>
-            <p>Explorez notre flotte d'engins et notre catalogue de pièces détachées</p>
-            <div class="btn-group">
-                <a href="catalogue-engins.html" class="btn">Catalogue Engins</a>
-                <a href="pieces-detachees.html" class="btn">Pièces Détachées</a>
-            </div>
-        </div>
-    </section>
+  <section class="about" id="about">
+    <h2>À propos de nous</h2>
+    <p>
+      Unicem Campus est dédié à la formation, à la qualité et à l'expertise dans le domaine des engins et équipements de chantier. Découvrez notre sélection rigoureuse d'engins et de pièces détachées, pensée pour répondre aux besoins des professionnels du secteur.
+    </p>
+  </section>
 
-    <!-- À PROPOS -->
-    <section class="about" id="about">
-        <h2>À propos de nous</h2>
-        <p>
-            Unicem Campus est dédié à la formation, à la qualité et à l'expertise dans le domaine des engins et équipements de chantier.
-            Découvrez notre sélection rigoureuse d'engins et de pièces détachées, pensée pour répondre aux besoins des professionnels du secteur.
-        </p>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        © 2024 Unicem Campus - Tous droits réservés
-    </footer>
-
+  <footer>
+    © 2025 Unicem Campus - Tous droits réservés
+  </footer>
 </body>
 </html>
