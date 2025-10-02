@@ -122,6 +122,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         .gallery-item:hover img {
@@ -145,6 +146,51 @@
 
         .gallery-item:hover p {
             opacity: 1;
+        }
+
+        #lightbox {
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 8px;
+        }
+
+        .lightbox-content p {
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            color: #333;
+            cursor: pointer;
         }
 
         footer {
@@ -196,14 +242,22 @@
         <h2>Galerie de Photos</h2>
 
         <div class="gallery-item-container">
-            <div class="gallery-item"><img src="images/IMG_0046.jpg" alt="Chargeuse"><p>Chargeuse en extérieur</p></div>
-            <div class="gallery-item"><img src="images/IMG_0051.jpg" alt="Godet"><p>Godet mécanique</p></div>
-            <div class="gallery-item"><img src="images/IMG_0060.jpg" alt="Mini-pelle 1"><p>Mini-pelle jaune vue de profil</p></div>
-            <div class="gallery-item"><img src="images/IMG_0061.jpg" alt="Mini-pelle 2"><p>Mini-pelle vue arrière</p></div>
-            <div class="gallery-item"><img src="images/IMG_0062.jpg" alt="Chariot télescopique"><p>Chariot télescopique rouge</p></div>
-            <div class="gallery-item"><img src="images/IMG_0063.jpg" alt="Mini-pelle 3"><p>Mini-pelle en action</p></div>
+            <div class="gallery-item"><img src="images/IMG_0046.jpg" alt="Chargeuse" onclick="openLightbox(this)"><p>Chargeuse en extérieur</p></div>
+            <div class="gallery-item"><img src="images/IMG_0051.jpg" alt="Godet" onclick="openLightbox(this)"><p>Godet mécanique</p></div>
+            <div class="gallery-item"><img src="images/IMG_0060.jpg" alt="Mini-pelle 1" onclick="openLightbox(this)"><p>Mini-pelle jaune vue de profil</p></div>
+            <div class="gallery-item"><img src="images/IMG_0061.jpg" alt="Mini-pelle 2" onclick="openLightbox(this)"><p>Mini-pelle vue arrière</p></div>
+            <div class="gallery-item"><img src="images/IMG_0062.jpg" alt="Chariot télescopique" onclick="openLightbox(this)"><p>Chariot télescopique rouge</p></div>
+            <div class="gallery-item"><img src="images/IMG_0063.jpg" alt="Mini-pelle 3" onclick="openLightbox(this)"><p>Mini-pelle en action</p></div>
         </div>
     </section>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation();">
+            <span class="close-btn" onclick="closeLightbox()">×</span>
+            <img id="lightbox-img" src="" alt="Image en grand">
+            <p id="lightbox-caption"></p>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-background">
@@ -219,5 +273,18 @@
         <p>© 2024 Mon Site Web. Tous droits réservés.</p>
     </footer>
 
+    <script>
+        function openLightbox(imgElement) {
+            const src = imgElement.src;
+            const caption = imgElement.nextElementSibling.innerText;
+            document.getElementById("lightbox-img").src = src;
+            document.getElementById("lightbox-caption").innerText = caption;
+            document.getElementById("lightbox").style.display = "flex";
+        }
+
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+    </script>
 </body>
 </html>
