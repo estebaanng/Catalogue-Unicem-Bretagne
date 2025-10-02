@@ -110,9 +110,12 @@
       overflow: hidden;
     }
     .lightbox-content img {
-      width: 100%;
-      height: auto;
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: cover;
+      object-position: center;
       display: block;
+      border-radius: 8px;
     }
     .lightbox-content .caption {
       padding: 15px;
@@ -174,8 +177,8 @@
       <div class="desc">Chariot télescopique rouge</div>
     </div>
     <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="images/IMG_0063.jpg" alt="Pelle JZ70">
-      <div class="desc">Pelle JZ70<br>7,5 Tonnes – Moteur Isuzu – 44kW (2006–2013)</div>
+      <img src="images/IMG_0063.jpg" alt="Pelle JCB JZ70">
+      <div class="desc">Pelle JCB JZ70</div>
     </div>
   </section>
 
@@ -194,9 +197,9 @@
   <script>
     function openLightbox(item) {
       const img = item.querySelector("img");
-      const caption = item.querySelector(".desc").innerHTML;
+      const caption = item.querySelector(".desc").innerText;
       document.getElementById("lightbox-img").src = img.src;
-      document.getElementById("lightbox-caption").innerHTML = caption;
+      document.getElementById("lightbox-caption").innerText = caption;
       document.getElementById("lightbox").style.display = "flex";
     }
     function closeLightbox() {
