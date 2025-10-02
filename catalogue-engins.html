@@ -1,208 +1,300 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catalogue Engins – Unicem</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      color: #333;
-      background-color: #f5f5f5;
-    }
-    header {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 15px 40px;
-      z-index: 1000;
-    }
-    header img {
-      height: 40px;
-      margin-right: 20px;
-    }
-    header nav a {
-      color: white;
-      margin-right: 30px;
-      text-decoration: none;
-      font-size: 1em;
-      transition: color 0.3s;
-    }
-    header nav a:hover {
-      color: #00aaff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue Engins - Unicem</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+        }
 
-    .hero {
-      height: 50vh;
-      background: url('images/IMG_0046.jpg') center center / cover no-repeat;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-    }
-    .hero h1 {
-      position: relative;
-      color: white;
-      font-size: 3em;
-      z-index: 1;
-    }
+        .back-button-container {
+            text-align: left;
+            padding: 20px;
+            background-color: #ffffff;
+        }
 
-    .gallery {
-      padding: 60px 40px;
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-    }
-    .gallery-item {
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      position: relative;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-    }
-    .gallery-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .gallery-item .desc {
-      padding: 15px;
-      font-size: 1em;
-      color: #555;
-    }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0077cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
 
-    #lightbox {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
-    .lightbox-content {
-      position: relative;
-      max-width: 80%;
-      max-height: 80%;
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .lightbox-content img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .lightbox-content .caption {
-      padding: 15px;
-      font-size: 1.1em;
-      color: #333;
-      background: #fafafa;
-    }
-    .lightbox-close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 2em;
-      color: #333;
-      cursor: pointer;
-    }
+        .back-button:hover {
+            background-color: #005fa3;
+        }
 
-    footer {
-      padding: 40px;
-      text-align: center;
-      background: #fff;
-      color: #777;
-    }
-  </style>
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            background: url('images/LogoUnicemCampus.jpg') repeat;
+            background-size: 200px;
+            filter: blur(5px);
+            animation: background-animate 30s linear infinite;
+        }
+
+        @keyframes background-animate {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .hero {
+            background-color: #ffffff;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #e0e0e0;
+            position: relative;
+        }
+
+        .hero h1 {
+            color: #333;
+            margin: 0;
+            font-size: 2em;
+            line-height: 1.2;
+        }
+
+        .hero .logo {
+            position: absolute;
+            top: 10px;
+            width: 80px;
+            height: auto;
+        }
+
+        .hero .logo.left {
+            left: 10px;
+        }
+
+        .hero .logo.right {
+            right: 10px;
+        }
+
+        .photo-gallery {
+            padding: 80px 40px;
+            background-color: #ffffff;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .photo-gallery h2 {
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 1.8em;
+        }
+
+        .gallery-item-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            font-size: 1em;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .gallery-item:hover p {
+            opacity: 1;
+        }
+
+        footer {
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+            padding: 20px 10px;
+            position: relative;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%);
+            z-index: -1;
+        }
+
+        .footer-background .logo {
+            width: 100px;
+            height: auto;
+            opacity: 0.5;
+            margin: 20px;
+        }
+
+        #lightbox {
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 8px;
+        }
+
+        .lightbox-content p {
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            color: #333;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <div class="background"></div>
 
-  <header>
-    <img src="images/LogoUnicemCampus.jpg" alt="Logo">
-    <nav>
-      <a href="index.html">Accueil</a>
-      <a href="catalogue-engins.html">Engins</a>
-      <a href="pieces-detachees.html">Pièces</a>
-    </nav>
-  </header>
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">← Retour à l'accueil</a>
+    </div>
 
-  <section class="hero">
-    <h1>Catalogue Engins Unicem</h1>
-  </section>
+    <section class="hero">
+        <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo left">
+        <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo right">
+        <h1>Bienvenue sur le catalogue des engins</h1>
+    </section>
 
-  <section class="gallery">
-    <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="images/IMG_0046.jpg" alt="Chargeuse">
-      <div class="desc">Chargeuse en extérieur</div>
-    </div>
-    <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="images/IMG_0051.jpg" alt="Godet">
-      <div class="desc">Godet mécanique</div>
-    </div>
-    <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="images/IMG_0060.jpg" alt="Mini-pelle 1">
-      <div class="desc">Mini-pelle jaune vue de profil</div>
-    </div>
-    <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="images/IMG_0061.jpg" alt="Mini-pelle 2">
-      <div class="desc">Mini-pelle vue arrière</div>
-    </div>
-    <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="images/IMG_0062.jpg" alt="Chariot télescopique">
-      <div class="desc">Chariot télescopique rouge</div>
-    </div>
-    <div class="gallery-item" onclick="openLightbox(this)">
-      <img src="images/IMG_0063.jpg" alt="Mini-pelle 3">
-      <div class="desc">Mini-pelle en action</div>
-    </div>
-  </section>
+    <section class="photo-gallery">
+        <h2>Galerie de Photos</h2>
 
-  <div id="lightbox" onclick="closeLightbox()">
-    <div class="lightbox-content" onclick="event.stopPropagation();">
-      <span class="lightbox-close" onclick="closeLightbox()">×</span>
-      <img id="lightbox-img" src="" alt="">
-      <div class="caption" id="lightbox-caption"></div>
+        <div class="gallery-item-container">
+            <div class="gallery-item"><img src="images/IMG_0046.jpg" alt="Chargeuse"><p>Chargeuse en extérieur</p></div>
+            <div class="gallery-item"><img src="images/IMG_0051.jpg" alt="Godet"><p>Godet mécanique</p></div>
+            <div class="gallery-item"><img src="images/IMG_0060.jpg" alt="Mini-pelle 1"><p>Mini-pelle jaune vue de profil</p></div>
+            <div class="gallery-item"><img src="images/IMG_0061.jpg" alt="Mini-pelle 2"><p>Mini-pelle vue arrière</p></div>
+            <div class="gallery-item"><img src="images/IMG_0062.jpg" alt="Chariot télescopique"><p>Chariot télescopique rouge</p></div>
+            <div class="gallery-item"><img src="images/IMG_0063.jpg" alt="Mini-pelle 3"><p>Mini-pelle en action</p></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-background">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+            <img src="images/LogoUnicemCampus.jpg" alt="Logo Unicem" class="logo">
+        </div>
+        <p>© 2024 Mon Site Web. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Lightbox pour agrandissement image -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation();">
+            <span class="close-btn" onclick="closeLightbox()">×</span>
+            <img id="lightbox-img" src="" alt="Image en grand">
+            <p id="lightbox-caption"></p>
+        </div>
     </div>
-  </div>
 
-  <footer>
-    © 2025 Unicem Campus – Tous droits réservés
-  </footer>
+    <script>
+        function openLightbox(imgSrc, captionText) {
+            document.getElementById("lightbox-img").src = imgSrc;
+            document.getElementById("lightbox-caption").innerText = captionText;
+            document.getElementById("lightbox").style.display = "flex";
+        }
 
-  <script>
-    function openLightbox(item) {
-      const img = item.querySelector("img");
-      const caption = item.querySelector(".desc").innerText;
-      document.getElementById("lightbox-img").src = img.src;
-      document.getElementById("lightbox-caption").innerText = caption;
-      document.getElementById("lightbox").style.display = "flex";
-    }
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
-    }
-  </script>
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
 
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".gallery-item").forEach(function (item) {
+                const img = item.querySelector("img");
+                const caption = item.querySelector("p").innerText;
+
+                img.style.cursor = "pointer";
+                img.addEventListener("click", function () {
+                    const fullSrc = img.currentSrc || img.src;
+                    openLightbox(fullSrc, caption);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
